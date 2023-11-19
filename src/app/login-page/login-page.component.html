@@ -1,0 +1,30 @@
+<div class=" lg:grid lg:grid-cols-2 md:grid md:grid-cols-2">
+    <div class="xsm:hidden sm:hidden md:block lg:block   ">
+        <img src="assets/Welcome.png" class="h-screen">
+    </div >
+    <div class="mt-[5rem]  px-[5rem] ">
+        <div class="border-[1px] p-6 border-gray rounded-md space-y-[5%]">
+            <div class="text-center text-base font-extrabold text-display-lg">
+                LogIn
+            </div>
+            <div class="px-[3rem]">
+                <label>Email :</label>
+                <input #newEmailInput  (input)="onEmailInputChange(newEmailInput.value)" placeholder="Please Enter your email here !" type="text" class="border-[0.7px] w-full px-4 p-2  rounded-full ">
+            </div>
+            <div class="relative px-[3rem]">
+                <label>Password :</label>
+                <input #newPasswordInput  (input)="onPasswordInputChange(newPasswordInput.value)" [type]="passwordInputtype" #passwordInput placeholder="Please Enter your password here !"  class="border-[0.7px] pr-[20%] w-full px-4 p-2  rounded-full ">
+                <span (click)="handlePassword()" class="absolute top-[67%] xsm:right-[17%] text-gray hover:text-black sm:right-[13%] md:right-[21%] lg:right-[15%] transform -translate-y-1/2 text-[14px]" >{{isShowPassword ? 'hide' :'show'}}</span>
+            </div>
+            <div class="px-[3rem] text-center">
+                  <button class="bg-base text-white px-3 rounded-full" (click)="onLogIn($event)"> Login </button>
+            </div>
+            <div class="text-center text-sm">
+                Doesn't have account ? <a class="text-base" routerLink="/register" routerLinkActive="active">Register</a>
+            </div>
+        </div>
+    
+    </div>
+
+</div>
+

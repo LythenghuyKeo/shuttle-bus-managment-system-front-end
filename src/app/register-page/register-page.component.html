@@ -1,0 +1,50 @@
+<div class=" lg:grid lg:grid-cols-2 md:grid md:grid-cols-2" >
+    <div class="xsm:hidden sm:hidden md:block lg:block   ">
+        <img src="assets/Welcome.png" class="h-[120%]">
+    </div >
+    <div class="mt-[0.5%]  px-[5rem] ">
+        <div class="border-[1px] p-6 border-gray rounded-md space-y-[5%]">
+            <div class="text-center text-base font-extrabold text-display-lg">
+                Register
+            </div>
+            <div class="px-[3rem]  ">
+                <label>Full name :</label>
+                <input  #newNameInput  (input)="onNameInputChange(newNameInput.value)"  placeholder="Please Enter your name here !" type="text" class="border-[0.7px] w-full px-4 p-2  rounded-full " required>
+            </div>
+            <div class="px-[3rem]">
+                <label>Email :</label>
+                <input #newEmailInput  (input)="onEmailInputChange(newEmailInput.value)" placeholder="Please Enter your email here !" type="email" class="border-[0.7px] w-full px-4 p-2  rounded-full " required>
+            </div>
+            <div class="relative px-[3rem]">
+                <label>Password :</label>
+                <input #newPasswordInput  (input)="onPasswordInputChange(newPasswordInput.value)" [type]="passwordInputtype" #passwordInput placeholder="Please Enter your password here !"  class="border-[0.7px] pr-[20%] w-full px-4 p-2  rounded-full " required>
+                <span (click)="handlePassword()" class="absolute top-[67%] xsm:right-[17%] text-gray hover:text-black sm:right-[13%] md:right-[21%] lg:right-[15%] transform -translate-y-1/2 text-[14px]" >{{isShowPassword ? 'hide' :'show'}}</span>
+            </div>
+    
+            <div class="relative px-[3rem] ">
+                <label>Department :</label>
+                <mat-select [(ngModel)]="User.department" name="department" class="border-[1px] p-2 border-black">
+                    <mat-option *ngFor="let department of Departments " [value]="department.value">
+                        {{department.value}}
+                    </mat-option>
+                </mat-select>
+            </div>
+            <div class="relative px-[3rem]  ">
+                <label>Batch :</label>
+                <mat-select [(ngModel)]="User.batch" name="batch" class="border-[1px] p-2 border-black">
+                    <mat-option *ngFor="let batch of Batch" [value]="batch">
+                        {{batch}}
+                    </mat-option>
+                </mat-select>
+            </div>
+            <div class="px-[3rem] text-center">
+                  <button class="bg-base hover:bg-button-hover text-white px-3 rounded-full" (click)="onRegister($event)" > Register </button>
+            </div>
+            <div class="text-center text-sm">
+                Already have account ? <a class="text-base hover:text-button-hover" routerLink="" routerLinkActive="active">Log In</a>
+            </div>
+        </div>
+    
+    </div>
+
+</div>
