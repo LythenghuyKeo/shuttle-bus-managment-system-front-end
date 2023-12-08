@@ -1,0 +1,58 @@
+<div class=" px-4 py-2 flex justify-center items-center  " *ngIf="mydriver">
+    <div class="   font-prodsan  p-3 border-1 border-gray mt-[5.1%] " >
+    <h2 class="text-black text-[24px] underline">Edit your driver info :</h2>
+    <div *ngIf="isError" class="text-red">{{message}}</div>
+    <mat-dialog-content class="text-black space-y-4 ">
+            <div class="space-x-3">
+                <label class="text-black" > Name : </label>
+      
+                <mat-form-field >
+         
+         
+                 <input value="{{mydriver.name}}" class="border-1 text-black" matInput #newNameInput  (input)="onNameInputChange(newNameInput.value)"  >
+         
+                </mat-form-field>
+            </div>
+            <div class="space-x-3">
+                <label class="text-black">Phone Number : </label>
+                <mat-form-field >
+         
+         
+                 <input value="{{mydriver.phoneNumber}}" class="border-1 text-black" matInput #newPhoneNumberInput  (input)="onPhoneInputChange(newPhoneNumberInput.value)"  >
+         
+                </mat-form-field>
+            </div>
+            <div class="space-x-3">
+                <label class="text-black">Car Type : </label>
+                <mat-form-field >
+         
+         
+                 <input value="{{mydriver.carType}}" class="border-1 text-black" matInput #newCarTypeInput  (input)="onCarTypeChange(newCarTypeInput.value)" >
+         
+                </mat-form-field>
+            </div>
+               <div class="space-x-3">
+                <label class="text-black">Car's plate number : </label>
+                <mat-form-field >
+         
+         
+                 <input value="{{mydriver.carPlate}}" class="border-1 text-black" matInput #newCarPlateInput  (input)="onCarPlateChange(newCarPlateInput.value)"  >
+         
+                </mat-form-field>
+            </div>
+          
+    
+    
+         
+    </mat-dialog-content>
+    <div class="flex justify-between ">
+        
+            <button mat-button (click)="onCancelClick()" class="bg-red hover:bg-red-hover text-white px-3  border-2 rounded-md">Cancel</button>
+            <button mat-button (click)="onOkClick(mydriver.pickUpDate)" class="text-white hover:bg-blue-hover bg-blue px-3  border-2 rounded-md">OK</button>
+
+    
+    </div>
+    </div>
+    </div>
+    
+

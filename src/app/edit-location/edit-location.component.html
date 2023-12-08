@@ -1,0 +1,28 @@
+<div class=" px-4 py-2 flex justify-center items-center  ">
+    <div class="   font-prodsan  p-3 border-1 border-gray mt-[5.1%] " *ngIf="mylocation">
+    <h2 class="text-black text-[24px] underline">Edit your location :</h2>
+    <mat-dialog-content class="text-black space-y-4 ">
+            <div class="space-x-3">
+                <label class="text-black">Location : </label>
+                <mat-form-field >
+         
+         
+                 <input value="{{mylocation.locationName}}" class="border-1 text-black" matInput #newLocationInput  (input)="onLocationInputChange(newLocationInput.value)"  >
+         
+                </mat-form-field>
+            </div>
+          
+    
+    
+         
+    </mat-dialog-content>
+    
+        <mat-dialog-actions class="space-x-[45%] ml-[6%]" >
+            <button mat-button (click)="onCancelClick()" class="hover:text-light-blue hover:bg-light-blue-hover px-3 border-base border-2 rounded-md">Cancel</button>
+            <button mat-button (click)="onOkClick(mylocation.id)" class="hover:text-white hover:bg-button-hover px-3 border-base border-2 rounded-md">OK</button>
+        </mat-dialog-actions>
+    
+    
+    </div>
+    </div>
+    

@@ -31,10 +31,10 @@ fill="#000000" stroke="none">
         <tbody *ngFor="let mybooking of myhistory;let i =index">
             <tr class="border-b  border-divider ">
                 <td class="px-6 py-4 flex justify-center">{{i+1}}</td>
-                <td class="px-6 py-4 hover:text-blue-hover text-blue"><a href="/">{{mybooking.id}}</a></td>
-                <td class="px-6 py-4 ">{{mybooking.date}}</td>
-                <td class="px-6 py-4">{{mybooking.departure}}</td>
-                <td class="px-6 py-4 ">{{mybooking.arrival}}</td>
+                <td class="px-6 py-4 hover:text-blue-hover text-blue"><div (click)="onTicketOpen(mybooking)">{{mybooking._id}}</div></td>
+                <td class="px-6 py-4 ">{{mybooking.pickUpDateTime}}</td>
+                <td class="px-6 py-4">{{mybooking.pickUpLocation}}</td>
+                <td class="px-6 py-4 ">{{mybooking.destinationLocation}}</td>
                 <td class="px-6 py-4 ">{{mybooking.status}}</td>
             </tr>
 

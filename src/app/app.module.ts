@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormControl, FormsModule } from '@angular/forms';
 import  {  BrowserAnimationsModule  }  from  '@angular/platform-browser/animations';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -17,7 +17,9 @@ import {MatDialog,MAT_DIALOG_DATA,MatDialogRef,MatDialogModule} from '@angular/m
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { NgIf } from '@angular/common';
+import { MatDatepicker, MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSelectModule } from '@angular/material/select';
+import { CalendarModule } from 'primeng/calendar';
 import { AlertComponent } from './alert/alert.component';
 
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
@@ -26,6 +28,13 @@ import { LocationComponent } from './location/location.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { AddLocationComponent } from './add-location/add-location.component';
+import { ApprovalPageComponent } from './approval-page/approval-page.component';
+import { AssignDriverComponent } from './assign-driver/assign-driver.component';
+import { ApprovalComponent } from './approval/approval.component';
+import { EditLocationComponent } from './edit-location/edit-location.component';
+import { EditDriverComponent } from './edit-driver/edit-driver.component';
+
+
 
 
 
@@ -41,6 +50,16 @@ import { AddLocationComponent } from './add-location/add-location.component';
     AlertComponent,
     AdminComponent,
     LocationComponent,
+    BookingInfoComponent,
+    ApprovalComponent,
+    AssignDriverComponent,
+    EditDriverComponent
+
+   
+ 
+
+
+
 
  
 
@@ -64,7 +83,15 @@ import { AddLocationComponent } from './add-location/add-location.component';
     MatTableModule,
     MatPaginatorModule,
     AddLocationComponent,
-    BookingPageComponent
+    BookingPageComponent,
+    CalendarModule,
+    MatDatepickerModule,
+    ApprovalPageComponent,
+    EditLocationComponent,
+    
+
+
+
 
   ],
   providers: [],

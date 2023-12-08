@@ -1,10 +1,11 @@
-import { Component ,Inject} from '@angular/core';
+import { Component ,Inject,AfterViewChecked,ChangeDetectorRef} from '@angular/core';
 import {MatDialog,MAT_DIALOG_DATA,MatDialogRef,MatDialogModule} from '@angular/material/dialog';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { NgIf } from '@angular/common';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { ADMIN_API_BASE_URL } from 'config';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-add-location',
   templateUrl: './add-location.component.html',
@@ -17,12 +18,12 @@ import { ADMIN_API_BASE_URL } from 'config';
   ],
   styleUrls: ['./add-location.component.css']
 })
-export class AddLocationComponent {
+export class AddLocationComponent  {
   headers:any;
   authToken:string|null;
     myprofile:any;
     name:string="";
-    constructor (public dialogRef:MatDialogRef<AddLocationComponent>,@Inject(MAT_DIALOG_DATA) data:any ,private http:HttpClient){
+    constructor (public cdr:ChangeDetectorRef,public router:Router,public dialogRef:MatDialogRef<AddLocationComponent>,@Inject(MAT_DIALOG_DATA) data:any ,private http:HttpClient){
        this.myprofile=data.myprofile;
        this.authToken=localStorage.getItem('authToken')
     }
@@ -34,17 +35,23 @@ export class AddLocationComponent {
       }
     onCancelClick():void{
       this.dialogRef.close();
+  
     }
     onOkClick():void{
       this.http.post(`${ADMIN_API_BASE_URL}`+'/create_location',{location_name:this.name},{headers:this.headers}).subscribe((response:any)=>{
         console.log(this.name)
         if(response.status){
-          this.dialogRef.close(this.name)
+          setTimeout(() => {
+            this.dialogRef.close(this.name);
+            location.reload()
+            
+          });
+         
         }
     
       
       })
-    
+    this.cdr.detectChanges();
     }
   
 

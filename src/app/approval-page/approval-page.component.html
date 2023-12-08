@@ -1,0 +1,54 @@
+<div class="p-6 pb-0.5" (click)="toMain()">Back</div>
+<div class="font-dmsan ">
+   
+    <h1 class="px-6 text-[24px] underline">History</h1>
+</div>
+<div class="py-2 ml-[2%] mr-[3%] mt-[3%] px-4 justify-end">
+    <label>Filter : </label>
+    <mat-form-field >
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker" (dateChange)="onSelectDate($event)" >
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker ></mat-datepicker>
+      </mat-form-field>
+      <button class="ml-[4%] text-white bg-base hover:bg-button-hover px-4 py-2 rounded-lg" (click)="onOk()">Apply</button>
+</div>
+<div class="py-4 ml-[3%] mr-[3%] mt-[3%] px-[18px] relative overflow-x-auto shadow-md sm:rounded-lg">
+    <table class="w-full text-sm text-left text-baseBG dark:text-baseBG">
+        <thead class="items-center xsm:text-[13px] sm:text-[12px] md:text-[14px] lg:text-[16px] text-base uppercase dark:text-base">
+            <tr>
+                <th scope="col" class="px-6 py-3 w-[5%]  "> No</th>
+                <th scope="col" class="px-6 py-3  "> Book ID</th>
+                <th scope="col" class="px-6 py-3  "> Trip's Date</th>
+                <th scope="col" class="px-6 py-3  "> Departure</th>
+                <th scope="col" class="px-6 py-3  "> Arrival</th>
+                <th scope="col" class="px-6 py-3  "> Status</th>
+                <th scope="col" class="px-6 py-3  "> Actions</th>
+            </tr>
+        </thead>
+            <tbody *ngFor="let mybooking of myhistory;let i =index">
+                <tr class="border-b  border-divider ">
+                    <td class="px-6 py-4 flex justify-center">{{i+1}}</td>
+                    <td class="px-6 py-4 hover:text-blue-hover text-blue" (click)="onTicketOpen(mybooking)">{{mybooking._id}}</td>
+                    <td class="px-6 py-4 ">{{mybooking.pickUpDateTime}}</td>
+                    <td class="px-6 py-4">{{mybooking.pickUpLocation}}</td>
+                    <td class="px-6 py-4 ">{{mybooking.destinationLocation}}</td>
+                    <td class="px-6 py-4 ">{{mybooking.status}}</td>
+                    <td class="px-6 py-4 ">
+                          <div class="flex space-x-3" *ngIf="mybooking.status==='pending'">
+                            <button (click)="onApprove(mybooking._id)" class="px-4 py-2 bg-green hover:bg-grren-hover text-white rounded-lg">Yes</button>
+                            <button (click)="onReject(mybooking._id)" class="px-4 py-2 bg-red hover:bg-red-hover text-white rounded-lg">No</button>
+                          </div>
+                          <div class="flex space-x-3" *ngIf="mybooking.status!='pending'">
+                            <button [disabled] class="px-4 py-2 bg-baseBG text-white rounded-lg">Yes</button>
+                            <button [disabled] class="px-4 py-2 bg-baseBG  text-white rounded-lg">No</button>
+                          </div>
+                    </td>
+                </tr>
+    
+            </tbody>
+ 
+
+    </table>
+</div>

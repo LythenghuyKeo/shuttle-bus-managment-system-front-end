@@ -71,6 +71,8 @@ private authToken :string | null;
 }
  openBooking():void{
   const dialogRef =this.dialog.open(BookingPageComponent,{
+    width:'100%',
+    height:'900px',
     data:{}
   })
   dialogRef.afterClosed().subscribe((result:string)=>{

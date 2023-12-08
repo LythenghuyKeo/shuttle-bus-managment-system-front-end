@@ -16,18 +16,18 @@
             <svg xmlns="http://www.w3.org/2000/svg" height="128" viewBox="0 -960 960 960" width="128"><path fill="#e6cb57" d="M240-120q-17 0-28.5-11.5T200-160v-82q-18-20-29-44.5T160-340v-380q0-83 77-121.5T480-880q172 0 246 37t74 123v380q0 29-11 53.5T760-242v82q0 17-11.5 28.5T720-120h-40q-17 0-28.5-11.5T640-160v-40H320v40q0 17-11.5 28.5T280-120h-40Zm242-640h224-448 224Zm158 280H240h480-80Zm-400-80h480v-120H240v120Zm100 240q25 0 42.5-17.5T400-380q0-25-17.5-42.5T340-440q-25 0-42.5 17.5T280-380q0 25 17.5 42.5T340-320Zm280 0q25 0 42.5-17.5T680-380q0-25-17.5-42.5T620-440q-25 0-42.5 17.5T560-380q0 25 17.5 42.5T620-320ZM258-760h448q-15-17-64.5-28.5T482-800q-107 0-156.5 12.5T258-760Zm62 480h320q33 0 56.5-23.5T720-360v-120H240v120q0 33 23.5 56.5T320-280Z"/></svg>
             
         </div>
-        <div class="flex justify-center items-center">
+        <div class="flex justify-center items-center" (click)="toDriver()">
             <button class="text-white mt-[25%] text-[32px]  mb-[20%] bg-base hover:bg-button-hover px-6 rounded-lg ">
                 Add Driver 
             </button>
         </div>
     </div>
-    <div class="border-4 border-base p-4 rounded-lg">
+    <div class="border-4 border-base p-4 rounded-lg" >
         <div class="flex justify-center mt-[20%]">
             <svg viewBox="0 0 20 20" width="128px" height="128px" xmlns="http://www.w3.org/2000/svg" fill="#e6cb57"><path  d="M13.28 7.78a.75.75 0 0 0-1.06-1.06l-2.97 2.97-1.22-1.22a.75.75 0 0 0-1.06 1.06l1.75 1.75a.75.75 0 0 0 1.06 0l3.5-3.5Z"/><path fill-rule="evenodd" d="M4 16a1.5 1.5 0 0 0 2.615 1.003l1.135-1.26 1.135 1.26a1.5 1.5 0 0 0 2.23 0l1.135-1.26 1.135 1.26a1.5 1.5 0 0 0 2.615-1.003v-11a2.5 2.5 0 0 0-2.5-2.5h-7a2.5 2.5 0 0 0-2.5 2.5v11Zm2.5-12a1 1 0 0 0-1 1v11l1.507-1.674a1 1 0 0 1 1.486 0l1.507 1.674 1.507-1.674a1 1 0 0 1 1.486 0l1.507 1.674v-11a1 1 0 0 0-1-1h-7Z"/></svg>
             
         </div>
-        <div class="flex justify-center items-center">
+        <div class="flex justify-center items-center" (click)="toApproval()">
             <button class="text-white mt-[25%] text-[32px]  mb-[20%] bg-base hover:bg-button-hover px-6 rounded-lg ">
                 Accept and Reject  
             </button>

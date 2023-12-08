@@ -1,0 +1,74 @@
+<app-nav-bar></app-nav-bar>
+<div class="pl-6 pt-4 pb-0.5" (click)="toMain()">Back</div>
+<div class="p-6">
+<div class="bg-base text-[32px] font-bold text-white text-center">
+    Assign Driver 
+
+</div>
+</div>
+<div class="flex justify-center content-center p-[32px] bg-white">
+    <div class="border-[1px] border-gray p-[40px]">
+           <div>
+              <label>Driver 's name  : </label>
+              <input [(ngModel)]="name" class="mt-[2%] px-2 py-1 border-[2px] w-[100%] rounded-lg hover:border-base" type="text"> 
+           </div>
+           <div class="mt-[2%]">
+            <label>Driver 's phone number : </label>
+            <input [(ngModel)]="phoneNumber" class="mt-[2%] px-2 py-1 border-[2px] w-[100%] rounded-lg hover:border-base" type="text"> 
+         </div>
+         <div class="mt-[2%]">
+            <label>Car type : </label>
+            <input [(ngModel)]="carType"  class="mt-[2%] px-2 py-1 border-[2px] w-[100%] rounded-lg hover:border-base" type="text"> 
+         </div>
+         <div class="mt-[2%]">
+            <label>Car's plate ID : </label>
+            <input [(ngModel)]="carPlate" class="mt-[2%] px-2 py-1 border-[2px] w-[100%] rounded-lg hover:border-base" type="text"> 
+         </div>
+         <div class="mt-[2%]">
+            <label>Unassigned driver date :</label>
+            <mat-select [(ngModel)]="unAssignedDriverDate" name="unAssignedDriverDate" class="border-[1px] p-2 border-black">
+                <mat-option *ngFor="let unAssignedDriverDate of unAssignedDriverDates" [value]="unAssignedDriverDate">
+                    {{unAssignedDriverDate}}
+                </mat-option>
+            </mat-select>
+         </div>
+         <div class="mt-[4%]">
+            <button (click)="onAddDriver()" class="rounded-full p-2 bg-base text-white font-bold hover:bg-button-hover w-[100%] text-center">Assign</button>
+         </div>
+    </div>
+</div>
+<div class="p-6">
+<div class="text-[32px] text-white font-bold text-baseBG text-center p-2 bg-base">
+    Update the assigned driver 
+</div>
+</div>
+<div class="py-4 ml-[3%] mr-[3%] mt-[3%] px-[18px] relative overflow-x-auto shadow-md sm:rounded-lg">
+   <table class="w-full text-sm text-left text-baseBG dark:text-baseBG">
+       <thead class="items-center xsm:text-[13px] sm:text-[12px] md:text-[14px] lg:text-[16px] text-base uppercase dark:text-base">
+           <tr>
+               <th scope="col" class="px-6 py-3 w-[5%]  "> No</th>
+               <th scope="col" class="px-6 py-3  "> Pick up Date</th>
+               <th scope="col" class="px-6 py-3  "> Driver's name</th>
+               <th scope="col" class="px-6 py-3  "> Phone number</th>
+               <th scope="col" class="px-6 py-3  "> Car's number</th>
+               <th scope="col" class="px-6 py-3  "> Car's type</th>
+               <th scope="col" class="px-6 py-3  "> Actions</th>
+           </tr>
+       </thead>
+           <tbody *ngFor="let mydriver of assignedDriver;let i =index">
+               <tr class="border-b  border-divider ">
+                   <td class="px-6 py-4 flex justify-center">{{i+1}}</td>
+                   <td class="px-6 py-4 hover:text-blue-hover text-blue">{{mydriver.pickUpDateTime}}</td>
+                   <td class="px-6 py-4 ">{{mydriver.driver[0].name}}</td>
+                   <td class="px-6 py-4">{{mydriver.driver[0].phoneNumber}}</td>
+                   <td class="px-6 py-4 ">{{mydriver.driver[0].carPlate}}</td>
+                   <td class="px-6 py-4 ">{{mydriver.driver[0].carType}}</td>
+                   <td class="flex px-6 py-4 justify-center"><button (click)="onEditDriver(mydriver)" class="text-white px-2 rounded-lg bg-blue hover:bg-blueA-hover">Edit</button></td>
+
+               </tr>
+   
+           </tbody>
+
+
+   </table>
+</div>

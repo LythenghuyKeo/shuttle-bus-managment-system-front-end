@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ChangeDetectorRef } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { API_BASE_URL } from 'config';
@@ -12,7 +12,7 @@ export class NavBarComponent implements OnInit {
   headers:any;
   authToken:string|null;
   isLoggedIn:boolean;
- constructor(private http:HttpClient , private router:Router,private authService:AuthService){
+ constructor(private cdr:ChangeDetectorRef,private http:HttpClient , private router:Router,private authService:AuthService){
    this.isLoggedIn=this.authService.isLoggedIn(),
    this.authToken=localStorage.getItem('authToken');
  }
@@ -22,13 +22,16 @@ export class NavBarComponent implements OnInit {
   })
  
  }
+ toMain(){
+  this.router.navigate(['/'])
+ }
  onLogOut(){
   this.http.post(`${API_BASE_URL}`+"/logout",{},{headers:this.headers}).subscribe((response:any)=>{
-    console.log(response.status,response.message)
     if (response.status){
-      localStorage.setItem('authToken',"")
+       localStorage.setItem('authToken','')
 
           this.router.navigate([''])
+          location.reload();
     }else{
        console.log(this.headers)
       

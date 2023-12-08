@@ -1,43 +1,58 @@
-<div class="w-[650px] lg:ml-[15%] h-[400px] flex justify-center items-center  ">
+<div class="w-[650px] mt-[10%] lg:ml-[15%] h-[400px] flex justify-center items-center  ">
+    
     <div class="   font-prodsan  p-3 border-1 border-gray mt-[5.1%]  ">
     <h2 class="text-black text-[24px] underline">Booking</h2>
     <mat-dialog-content class="text-black space-y-4 ">
-
+        <div *ngIf="isError" class="text-red">{{message}}</div>
             <div class="relative px-[3rem]  ">
-                <label class="text-black">Pick up Location :</label>
+                <label class="text-base font-bold">Pick up Location : *</label>
                 <mat-select [(ngModel)]="mybooking.pickUpLocation"  class="border-[1px] p-2 border-black">
                     <mat-option *ngFor="let location of mylocation" [value]="location.location_name">
                         {{location.location_name}}
                     </mat-option>
                 </mat-select>
             </div> 
+            <div class="relative px-[3rem]  ">
+                <label class="text-base font-bold">Pick up time : *</label>
+                <mat-select [(ngModel)]="mybooking.pickUpTime"  class="border-[1px] p-2 border-black">
+                    <mat-option *ngFor="let i of time" [value]="i">
+                        {{i}}
+                    </mat-option>
+                </mat-select>
+            </div> 
             <div class="relative px-[3rem] space-x-6   ">
-                <label class="text-black">Pick up Date:</label>
+                <label class="text-base font-bold">Pick up Date : *</label>
                 <input type="date" [(ngModel)]="mybooking.pickUpDateTime" class="p-2 border-2 border-black" >
                 
             </div> 
             <div class="relative px-[3rem]  ">
-                <label class="text-black">Destination Location :</label>
+                <label class="text-base font-bold">Destination Location : *</label>
                 <mat-select [(ngModel)]="mybooking.destinationLocation"  class="border-[1px] p-2 border-black">
                     <mat-option *ngFor="let location of mylocation" [value]="location.location_name">
                         {{location.location_name}}
                     </mat-option>
                 </mat-select>
             </div> 
-            <div class="relative px-[3rem]  ">
-                <label class="text-black">Destination datetime:</label>
+            <div class="relative px-[3rem] space-x-6  ">
+                <label class="text-base font-bold">Destination Date : *</label>
                 <input type="date" [(ngModel)]="mybooking.destinationDateTime" class="p-2 border-2 border-black" >
                 
             </div> 
+
           
     
          
     </mat-dialog-content>
-    
-        <mat-dialog-actions class="space-x-[45%] ml-[6%]" >
+<!--     
+        <mat-dialog-actions class="space-x-[45%]" >
             <button mat-button (click)="onCancelClick()" class="hover:text-white hover:bg-button-hover px-3 border-base border-2 rounded-md">Cancel</button>
-            <button mat-button (click)="onOkClick()" class="hover:text-white hover:bg-button-hover px-3 border-base border-2 rounded-md">OK</button>
-        </mat-dialog-actions> 
+            <button mat-button (click)="onOkClick()" class="hover:text-white hover:bg-button-hover px-3 border-base border-2 rounded-md mr-[-15%]">OK</button>
+        </mat-dialog-actions>  -->
+
+        <div class="flex justify-between">
+            <button mat-button (click)="onCancelClick()" class="text-white hover:bg-red-hover px-4 py-2 bg-red  rounded-xl">Cancel</button>
+            <button mat-button (click)="onOkClick()" class="text-white  px-4 py-2 bg-light-blue hover:bg-light-blue-hover  rounded-xl ">OK</button>
+        </div>
     
    
     </div>

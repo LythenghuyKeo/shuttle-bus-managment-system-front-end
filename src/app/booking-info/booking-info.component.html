@@ -1,1 +1,78 @@
-<p>booking-info works!</p>
+<div  class="px-6 py-3 text-[1.5rem]  font-extrabold font-prodsan">Booking Detail:</div>
+<div *ngIf="isError" class="px-4 py-2 text-center text-red font-prodsan">{{message}}</div>
+<mat-dialog-content>
+    <!-- <div class="text-black">
+        <div>Booked Id : <span class="text-base font-extrabold">{{data._id}}</span></div>
+        <div>Departure : {{data.pickUpLocation}}</div>
+        <div>Departure date: {{data.pickUpDateTime}}</div>
+        <div>Arrival   : {{data.destinationLocation}}</div>
+        <div>DriverName: {{data.driver.name}}</div>
+        <div>Car type: {{data.driver.carType}}</div>
+        <div>Plate Number : {{data.driver.carPlate}}</div>
+        <div>Plate Number : {{data.driver.phoneNumber}}</div>
+        <div>Status :{{data.status}}</div>
+    </div> -->
+    <table class="w-[100%] p-4 font-prodsan text-black">
+        <tr>
+            <th> Booked Id :</th>
+            <td>{{data._id}}</td>
+        </tr>
+        <tr>
+            <th>Departure :</th>
+            <td>{{data.pickUpLocation}}</td>
+        </tr>
+        <tr>
+            <th>Departure's date : </th>
+            <td>{{data.pickUpDateTime}}</td>
+        </tr>
+        <tr>
+            <th>Arrival : </th>
+            <td>{{data.destinationLocation}}</td>
+        </tr>
+        <tr>
+            <th>
+                Driver's name:
+            </th>
+            <td>
+                {{data.driver.name}}
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Car's type
+            </th>
+            <td>
+                {{data.driver.carType}}
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Car's plate
+            </th>
+            <td>
+                {{data.driver.carPlate}}
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Driver's number
+            </th>
+            <td>
+                {{data.driver.phoneNumber}}
+            </td>
+        </tr>
+        <tr>
+            <th>
+               Status
+            </th>
+            <td>
+                {{data.status}}
+            </td>
+        </tr>
+    </table>
+</mat-dialog-content>
+<div  class="px-4 py-2 text-[1rem] ml-5 font-extrabold font-prodsan flex justify-between">
+    <button mat-button (click)="closeDialog()" class="text-white px-4 py-2 bg-light-blue hover:bg-light-blue-hover rounded-xl">Back</button>
+    <button  mat-button (click)="onOkClick(data._id)" class="text-white px-4 py-2 bg-base hover:bg-button-hover rounded-xl mr-[10px]">Cancel booking</button>
+    <!-- <button [ngClass]="{'bg-baseBG':data.status !== 'pending'}" disabled="{data.status !== 'pending'}" mat-button (click)="onOkClick(data._id)" class="text-white px-4 py-2 bg-base hover:bg-button-hover rounded-xl mr-[10px]">Cancel booking</button> -->
+</div>

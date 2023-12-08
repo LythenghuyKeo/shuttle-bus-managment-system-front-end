@@ -11,5 +11,11 @@ export class AdminComponent {
   toLocation(){
     this.router.navigate(['admin/location'])
   }
+  toApproval(){
+    this.router.navigate(['admin/history'])
+  }
+  toDriver(){
+    this.router.navigate(['admin/assign_driver'])
+  }
 
 }
