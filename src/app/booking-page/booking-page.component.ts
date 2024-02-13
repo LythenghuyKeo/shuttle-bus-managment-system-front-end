@@ -64,8 +64,7 @@ export class BookingPageComponent {
             this.message=response.message// Assign fetched data
           }, 1000);
 
-       
-        this.cdr.detectChanges()
+      location.reload();
       }else{
         this.isError=true;
         this.message=response.message

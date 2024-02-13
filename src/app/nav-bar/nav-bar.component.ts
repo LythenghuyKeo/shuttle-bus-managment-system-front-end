@@ -31,7 +31,7 @@ export class NavBarComponent implements OnInit {
        localStorage.setItem('authToken','')
 
           this.router.navigate([''])
-          location.reload();
+          
     }else{
        console.log(this.headers)
       

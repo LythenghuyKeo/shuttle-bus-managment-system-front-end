@@ -168,26 +168,20 @@ this.http.put(`${ADMIN_API_BASE_URL}`+'/reject_booking',{bookedId:bookedId},{hea
 
   })
 }
-onEditDriver(driver:any):void{
-  const dialogRef = this.dialog.open(EditDriverComponent,{
-   width:"500px",
-    data:{
-      name:driver.driver[0].name,
-      pickUpDate:driver.pickUpDateTime,
-      phoneNumber:driver.driver[0].phoneNumber,
-      carPlate:driver.driver[0].carPlate,
-      carType:driver.driver[0].carType
+onEditDriver(date:any):void{
+  console.log(this.selectedDate)
+  const headers =  new HttpHeaders({
+    'Authorization':`Bearer ${this.authToken}`
+   })
+   console.log(this.authToken)
+   
+   this.http.put(`${ADMIN_API_BASE_URL}`+'/updateDriver',{pickUpDate:date,name:"",phoneNumber:"",carPlate:"",carType:""},{headers:this.headers}).subscribe((response:any)=>{
+    if(response.status){
+        location.reload()
 
     }
-     
-    
-  })
-  dialogRef.afterClosed().subscribe(()=>{
- 
-     location.reload()
 
- 
-
+  
   })
 }
 }

@@ -39,6 +39,7 @@ export class BookingInfoComponent {
       if(response.status){
         this.isError=false;
         this.dialogRef.close()
+        location.reload()
         // this.router.navigate(['home'])
       }else{
         this.isError=true;

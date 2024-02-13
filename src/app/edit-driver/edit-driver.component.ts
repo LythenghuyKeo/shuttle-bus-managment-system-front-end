@@ -38,7 +38,7 @@ export class EditDriverComponent {
     onOkClick(pickUpDate:any):void{
       this.http.put(`${ADMIN_API_BASE_URL}`+'/updateDriver',{pickUpDate:pickUpDate,name:this.name,phoneNumber:this.phoneNumber,carPlate:this.carPlate,carType:this.carType},{headers:this.headers}).subscribe((response:any)=>{
         if(response.status){
-          // this.dialogRef.close();
+
 
         }else{
           this.isError=true;
@@ -50,28 +50,28 @@ export class EditDriverComponent {
     
     }
     onNameInputChange(newName:string):void{
-      if (newName!==""){
+      if (newName!=null){
         this.name=newName;
       }else{
         this.name=this.mydriver.name;
       }
     }
     onPhoneInputChange(newPhone:string):void{
-      if (newPhone!==""){
+      if (newPhone!=null){
         this.phoneNumber=newPhone;
       }else{
         this.phoneNumber=this.mydriver.phoneNumber;
       }
     }
     onCarTypeChange(carType:string):void{
-      if (carType!==""){
+      if (carType!=null){
         this.carType=carType;
       }else{
         this.carType=this.mydriver.carType;
       }
     }
     onCarPlateChange(carPlate:string):void{
-      if (carPlate!==""){
+      if (carPlate!=null){
         this.carPlate=carPlate;
       }else{
         this.carPlate=this.mydriver.carPlate;
